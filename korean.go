@@ -27,6 +27,8 @@ func trans(t transform.Transformer, src []byte) (dst []byte, err error) {
 		dst = make([]byte, len(src)+len(src)/2)
 	case "eucKREncoder":
 		dst = make([]byte, len(src))
+	case "eucKREncoder_ankit":
+		dst = make([]byte, len(src))
 	}
 
 	for {
@@ -49,7 +51,7 @@ func trans(t transform.Transformer, src []byte) (dst []byte, err error) {
 func UTF8(src []byte) (dst []byte, err error) {
 	return trans(korean.EUCKR.NewDecoder(), src)
 }
-
+//Comment
 // EUCKR converts from UTF-8 bytes to EUC-KR bytes.
 func EUCKR(src []byte) (dst []byte, err error) {
 	return trans(korean.EUCKR.NewEncoder(), src)
